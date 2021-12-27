@@ -1,0 +1,35 @@
+import { Mesh, MeshBasicMaterial, Object3D, Plane, Vector3 } from 'three';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
+import { Context, IfcComponent } from '../../../base-types';
+import { ClippingEdges } from './clipping-edges';
+import { IfcManager } from '../../ifc';
+export declare class IfcPlane extends IfcComponent {
+    static planeMaterial: MeshBasicMaterial;
+    private static hiddenMaterial;
+    readonly arrowBoundingBox: Mesh<import("three").BufferGeometry, import("three").Material | import("three").Material[]>;
+    readonly plane: Plane;
+    readonly planeMesh: Mesh;
+    isVisible: boolean;
+    enabled: boolean;
+    edgesActive: boolean;
+    isPlan: boolean;
+    readonly controls: TransformControls;
+    readonly edges: ClippingEdges;
+    readonly normal: Vector3;
+    readonly origin: Vector3;
+    readonly helper: Object3D;
+    private readonly planeSize;
+    private readonly context;
+    constructor(context: Context, ifc: IfcManager, origin: Vector3, normal: Vector3, onStartDragging: Function, onEndDragging: Function, planeSize: number, edgesEnabled: boolean);
+    get active(): boolean;
+    set active(state: boolean);
+    get visible(): boolean;
+    set visible(state: boolean);
+    removeFromScene: () => void;
+    private newTransformControls;
+    private initializeControls;
+    private createArrowBoundingBox;
+    private setupEvents;
+    private createHelper;
+    private getPlaneMesh;
+}

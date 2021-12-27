@@ -1,0 +1,33 @@
+import { Vector3, Intersection } from 'three';
+import { IfcComponent, Context } from '../../../base-types';
+import { IfcPlane } from './planes';
+import { IfcManager } from '../../ifc';
+export declare class IfcClipper extends IfcComponent {
+    dragging: boolean;
+    planes: IfcPlane[];
+    intersection: Intersection | undefined;
+    orthogonalY: boolean;
+    toleranceOrthogonalY: number;
+    planeSize: number;
+    private edgesEnabled;
+    private enabled;
+    private readonly context;
+    private readonly ifc;
+    constructor(context: Context, ifc: IfcManager);
+    get active(): boolean;
+    set active(state: boolean);
+    get edgesActive(): boolean;
+    set edgesActive(state: boolean);
+    createPlane: () => void;
+    createFromNormalAndCoplanarPoint: (normal: Vector3, point: Vector3, isPlan?: boolean) => IfcPlane;
+    deletePlane: (plane?: IfcPlane | undefined) => void;
+    deleteAllPlanes: () => void;
+    private pickPlane;
+    private createPlaneFromIntersection;
+    private normalizePlaneDirectionY;
+    private newPlane;
+    private activateDragging;
+    private deactivateDragging;
+    private updateMaterials;
+    private updateMaterial;
+}
