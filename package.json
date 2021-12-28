@@ -24,7 +24,8 @@
     "three": "^0.136.0",
     "tslib": "^2.0.0",
     "web-ifc": "0.0.32",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "web-ifc-three": "^0.0.96"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.3",
